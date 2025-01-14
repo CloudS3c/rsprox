@@ -207,7 +207,7 @@ public class TextNpcInfoTranscriber(
                                         when {
                                             coordShift && update.jump -> "TELEJUMP"
                                             coordShift -> "TELEPORT"
-                                            else -> "ACTIVE"
+                                            else -> "idle"
                                         }
                                     }
                                     MoveSpeed.CRAWL -> "CRAWL"
@@ -712,7 +712,7 @@ public class TextNpcInfoTranscriber(
         if (settings[Setting.NPC_EXT_INFO_INDICATOR]) {
             shortNpc(npc.index)
         }
-        string("opflags", info.value.toFullBinaryString(5))
+        any("opflags", info.value.toFullBinaryString(5))
     }
 
     private fun Property.faceCoord(
